@@ -6,9 +6,9 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {Issue} from './models/issue';
 import {DataSource} from '@angular/cdk/collections';
-import {AddDialogComponent} from './dialogs/add/add.dialog.component';
-import {EditDialogComponent} from './dialogs/edit/edit.dialog.component';
-import {DeleteDialogComponent} from './dialogs/delete/delete.dialog.component';
+import {AddDialogComponent} from './dialogs/add/add-dialog/add-dialog.component';
+import {EditDialogComponent} from './dialogs/edit/edit-dialog/edit-dialog.component';
+import {DeleteDialogComponent} from './dialogs/delete/delete-dialog/delete-dialog.component';
 import {BehaviorSubject, fromEvent, merge, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -19,6 +19,8 @@ import {map} from 'rxjs/operators';
 })
 
 export class AppComponent implements OnInit {
+  //deviceXs: boolean;
+
   displayedColumns = ['id', 'title', 'state', 'url', 'created_at', 'updated_at', 'actions'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
@@ -163,7 +165,7 @@ export class ExampleDataSource extends DataSource<Issue> {
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
       this._exampleDatabase.dataChange,
-      this._sort.sortChange,
+      //this._sort.sortChange,
       this._filterChange,
       this._paginator.page
     ];
@@ -194,7 +196,7 @@ export class ExampleDataSource extends DataSource<Issue> {
 
   /** Returns a sorted copy of the database data. */
   sortData(data: Issue[]): Issue[] {
-    if (!this._sort.active || this._sort.direction === '') {
+    if (true) {
       return data;
     }
 

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -14,14 +15,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { DataService } from './services/data.service';
 import { AddDialogComponent } from './dialogs/add/add-dialog/add-dialog.component';
 import { EditDialogComponent } from './dialogs/edit/edit-dialog/edit-dialog.component';
 import { DeleteDialogComponent } from './dialogs/delete/delete-dialog/delete-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +40,7 @@ import { DeleteDialogComponent } from './dialogs/delete/delete-dialog/delete-dia
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
@@ -46,7 +52,12 @@ import { DeleteDialogComponent } from './dialogs/delete/delete-dialog/delete-dia
     MatInputModule,
     MatCardModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule,
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
