@@ -1,35 +1,55 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { FormsModule } from '@angular/forms';
-
-import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import {HttpClientModule} from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {DataService} from './services/data.service';
+import {AddDialogComponent} from './dialogs/add/add-dialog/add-dialog.component';
+import {EditDialogComponent} from './dialogs/edit/edit-dialog/edit-dialog.component';
+import {DeleteDialogComponent} from './dialogs/delete/delete-dialog/delete-dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogBoxComponent
+    AddDialogComponent,
+    EditDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MatTableModule,
+    HttpClientModule,
     MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
+    FormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatSortModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  entryComponents: [
+    AddDialogComponent,
+    EditDialogComponent,
+    DeleteDialogComponent
+  ],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
